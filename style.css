@@ -1,3 +1,11 @@
 #mainDesign {
     text-align: center;
 }
+
+.homePageButtons {
+    text-align: center;
+}
+
+.loginCredentials {
+    width: 540px;
+}
