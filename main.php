@@ -23,6 +23,7 @@
 
     <div class="container loginCredentials">
       <form action="main.php" method="post">
+        <input type="hidden" name="form" value="login">
         <div class="form-group">
           <label for="inputUsername">Username</label>
           <input type="text" class="form-control" id="inputUsername" name="username">
@@ -31,45 +32,113 @@
           <label for="inputPassword">Password</label>
           <input type="password" class="form-control" id="inputPassword" name="password">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Login</button>
+        <button type="button" class="btn btn-secondary" onclick="goBackToHome()">Back</button>
+      </form> <br>
+    </div>
+
+    <div class="container signup">
+      <form action="main.php" method="post">
+        <input type="hidden" name="form" value="signup">
+        <div class="form-group">
+          <label for="signupUser">Username</label>
+          <input type="text" class="form-control" id="signupUser" name="signupUser">
+        </div>
+        <div class="form-group">
+          <label for="signupPassword">Password</label>
+          <input type="password" class="form-control" id="signupPassword" name="signupPassword">
+        </div>
+        <div class="form-group">
+          <label for="signupEmail">Email</label>
+          <input type="email" class="form-control" id="signupEmail" name="signupEmail">
+        </div>
+        <div class="form-group">
+          <label for="signupAddress">Address</label>
+          <input type="text" class="form-control" id="signupAddress" name="signupAddress">
+        </div>
+        <button type="submit" class="btn btn-primary">Signup</button>
         <button type="button" class="btn btn-secondary" onclick="goBackToHome()">Back</button>
       </form> <br>
     </div>
 
     <?php
-      if($_SERVER["REQUEST_METHOD"] == "POST"){
-        $valid = true;
+      //if($_SERVER["REQUEST_METHOD"] == "POST"){
+      if(isset($_POST['form'])){
+        switch($_POST['form']){
+          case 'login':
+            if(empty($_POST['username']) || empty($_POST['password'])){
+              echo "<script type=\"text/javascript\">alert('Please enter both a username and a password!');</script>";
+              echo "<script type=\"text/javascript\">window.location.replace('main.php');</script>";
+            }
 
-        if(empty($_POST['username']) || empty($_POST['password'])){
-          //echo "<script type=\"text/javascript\">console.log('loaded');</script>";
-          echo "<script type=\"text/javascript\">alert('Please enter both a username and a password!');</script>";
-          echo "<script type=\"text/javascript\">window.location.replace('main.php');</script>";
-        }
+            $username = test_input($_POST['username']);
+            $password = test_input($_POST['password']);
 
-        $username = test_input($_POST['username']);
-        $password = test_input($_POST['password']);
+            $con = new mysqli('localhost', 'root', '', 'quizapp');
+            
+            if(mysqli_connect_errno()){
+              echo "Failed to connect to database! " . mysqli_connect_error();
+            }
+            else{
+              $result = mysqli_query($con, "SELECT * FROM registered_user WHERE User_Name = '$username' AND User_Password = '$password'");
 
-        $con = new mysqli('localhost', 'root', '', 'quizapp');
-        
-        if(mysqli_connect_errno()){
-          echo "Failed to connect to database! " . mysqli_connect_error();
-        }
-        else{
-          $result = mysqli_query($con, "SELECT * FROM registered_user WHERE user_name = '%{$username}%' AND user_password = '%{$password}%'");
+              if(!mysqli_fetch_row($result)){
+                mysqli_close($con);
+                echo "<script type=\"text/javascript\">alert('Invalid username or password!');</script>";
+                echo "<script type=\"text/javascript\">window.location.replace('main.php');</script>";
+              }
+              else{
+                mysqli_close($con);
+                session_start();
+                $_SESSION['username'] = $username;
+                $_POST = array();
+                header('Location: welcome.php');
+              }
+            }
+            break;
 
-          if(empty($result)){
-            mysqli_close($con);
-            echo "<script type=\"text/javascript\">alert('Invalid username or password!');</script>";
-            echo "<script type=\"text/javascript\">window.location.replace('main.php');</script>";
-          }
-          else{
-            mysqli_close($con);
-            session_start();
-            $_SESSION['username'] = $username;
-            echo "<script type=\"text/javascript\">alert('logged in!');</script>";
-            echo "<script type=\"text/javascript\">window.location.replace('main.php');</script>";
-            //go to dashboard
-          }
+          case 'signup':
+            $valid = true;
+
+            if(empty($_POST['signupUser']) || empty($_POST['signupPassword']) || empty($_POST['signupEmail']) || empty($_POST['signupAddress'])){
+              echo "<script type=\"text/javascript\">alert('Please enter data in all the fields!');</script>";
+              echo "<script type=\"text/javascript\">window.location.replace('main.php');</script>";
+            }
+
+            $username = test_input($_POST['signupUser']);
+            $password = test_input($_POST['signupPassword']);
+            $email = test_input($_POST['signupEmail']);
+            $address = test_input($_POST['signupAddress']);
+
+            if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
+              echo "<script type=\"text/javascript\">alert('Please enter a valid email!');</script>";
+              echo "<script type=\"text/javascript\">window.location.replace('main.php');</script>";
+            }
+
+            $con = new mysqli('localhost', 'root', '', 'quizapp');
+
+            if(mysqli_connect_errno()){
+              echo "Failed to connect to database! " . mysqli_connect_error();
+            }
+            else{
+              $sql = "INSERT INTO registered_user (user_name, user_email, user_address, user_password) VALUES ('$username', '$email', '$address', '$password')";
+
+              if($con->query($sql) === true){
+                mysqli_close($con);
+                session_start();
+                $_SESSION['username'] = $username;
+                $_POST = array();
+                header('Location: welcome.php');
+              }
+              else{
+                echo "Error! Could not insert into database!" . $con->error;
+                die();
+              }
+            }
+            break;
+
+          default:
+            break;
         }
       }
 

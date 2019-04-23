@@ -10,6 +10,7 @@
     width: 540px;
 }
 
+
 .navbar .btn{
 	background-color: red;
 	font-weight: bold;
@@ -18,4 +19,7 @@
 
 .navbar .navbar-brand{
 	font-weight: bolder;
+
+.signup {
+    width: 540px;
 }
