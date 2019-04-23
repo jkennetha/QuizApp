@@ -15,14 +15,38 @@
   <body>
 	
 	
-
-	<div class="jumbotron">
-		<h1 class="display-4">Quiz App</h1>
-			<p class="lead">WELCOME [USERNAME]</p>
-			<hr class="my-4">
-			<p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-			
-	</div>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<a class="navbar-brand" href="#">Navbar</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse" id="navbarNavDropdown">
+			<ul class="navbar-nav">
+				<li class="nav-item active">
+					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+				</li>
+				<li class="nav-item">	
+					<a class="nav-link" href="#">Features</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#">Pricing</a>
+				</li>
+				<li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						Dropdown link
+					</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+						<a class="dropdown-item" href="#">Action</a>
+						<a class="dropdown-item" href="#">Another action</a>
+						<a class="dropdown-item" href="#">Something else here</a>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<form class="form-inline">
+			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
+		</form>
+	</nav>
 	
 	
 	<div class="accordion" id="accordionExample">
@@ -44,7 +68,7 @@
 							<input type="text" class="form-control" id="formGroupExampleInput">
 						</div>
 						<div class="form-group">
-							<label for="formGroupExampleInput2">Descriptiion</label>
+							<label for="formGroupExampleInput2">Description</label>
 							<textarea class="form-control" id="validationTextarea"></textarea>
 						</div>
 							<button class="btn btn-primary">CREATE COURSE</button>
