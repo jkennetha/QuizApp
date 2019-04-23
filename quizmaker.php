@@ -36,64 +36,23 @@
 		</form>
 	</nav>
 	
+	<div class="card" style="width: 50rem;">
 	
-	<div class="accordion" id="accordionExample">
-			
-		<div class="card">
-		
-			<div class="card-header" id="headingTwo">
-				<h2 class="mb-0">
-					<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-					COURSE LIST
-					</button>
-				</h2>
-			</div>
-		<div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-			<div class="card-body">
-				<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
-					COURSE TITLE
-				</button>
-
-		<!-- Modal -->
-				<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
-					<div class="modal-dialog" role="document">
-						<div class="modal-content">
-							<div class="modal-header">
-								<h5 class="modal-title" id="exampleModalLongTitle">COURSE TITLE</h5>
-								<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-								<span aria-hidden="true">&times;</span>
-								</button>
-							</div>
-							<div class="modal-body">
-								COURSE DESCRIPTION
-							</div>
-							<div class="modal-footer">
-								<button type="button" class="btn btn-secondary" data-dismiss="modal">CLOSE COURSE</button>
-								<button type="button" class="btn btn-primary">VIEW COURSE STATISTICS</button>
-							</div>
+	<div class="card-body">
+						<h5 class="card-title">CREATE A COURSE:</h5>
+						
+						<div class="form-group">
+							<label for="formGroupExampleInput">Name</label>
+							<input type="text" class="form-control" id="formGroupExampleInput">
 						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		</div>
-		
-		<div class="card">
-		
-			<div class="card-header" id="headingThree">
-				<h2 class="mb-0">
-					<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-						QUIZ LIST
-					</button>
-				</h2>
-			</div>
-			<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-				<div class="card-body">
-					???
-				</div>
-			</div>
-		</div>
-		
+						<div class="form-group">
+							<label for="formGroupExampleInput2">Description</label>
+							<textarea class="form-control" id="validationTextarea"></textarea>
+						</div>
+							<button class="btn btn-primary">CREATE COURSE</button>
+					
+	</div>
+	
 	</div>
 	
 	
