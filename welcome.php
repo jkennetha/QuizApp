@@ -16,67 +16,28 @@
 	
 	
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#">Navbar</a>
+		<a class="navbar-brand" href="welcome.php">Quiz App</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
 		<div class="collapse navbar-collapse" id="navbarNavDropdown">
 			<ul class="navbar-nav">
 				<li class="nav-item active">
-					<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+					<a class="nav-link" href="quizmaker.php">Quiz Maker <span class="sr-only">(current)</span></a>
 				</li>
 				<li class="nav-item">	
-					<a class="nav-link" href="#">Features</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Pricing</a>
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-						Dropdown link
-					</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-						<a class="dropdown-item" href="#">Action</a>
-						<a class="dropdown-item" href="#">Another action</a>
-						<a class="dropdown-item" href="#">Something else here</a>
-					</div>
+					<a class="nav-link" href="#">Quiz Taker</a>
 				</li>
 			</ul>
 		</div>
-		<form class="form-inline">
+		
+		<form class="form-inline" action="main.php">
 			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Logout</button>
 		</form>
 	</nav>
 	
 	
 	<div class="accordion" id="accordionExample">
-		
-		<div class="card">
-		
-			<div class="card-header" id="headingOne">
-				<h2 class="mb-0">
-					<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-					CREATE COURSE
-					</button>
-				</h2>
-			</div>
-			<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-				<div class="card-body">
-					
-						<div class="form-group">
-							<label for="formGroupExampleInput">Name</label>
-							<input type="text" class="form-control" id="formGroupExampleInput">
-						</div>
-						<div class="form-group">
-							<label for="formGroupExampleInput2">Description</label>
-							<textarea class="form-control" id="validationTextarea"></textarea>
-						</div>
-							<button class="btn btn-primary">CREATE COURSE</button>
-					
-				</div>
-			</div>
-			
-		</div>
 			
 		<div class="card">
 		
@@ -122,13 +83,13 @@
 			<div class="card-header" id="headingThree">
 				<h2 class="mb-0">
 					<button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-						CREATE QUIZ
+						QUIZ LIST
 					</button>
 				</h2>
 			</div>
 			<div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
 				<div class="card-body">
-					Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+					???
 				</div>
 			</div>
 		</div>
